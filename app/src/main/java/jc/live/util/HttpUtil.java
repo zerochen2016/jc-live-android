@@ -7,7 +7,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 
-
+/**
+ * Http 请求工具类
+ * @Author JC
+ * @Date 2019-12-17
+ * @Since 1.0.0
+ */
 public class HttpUtil extends Thread {
 
     private String requestUrl = "";

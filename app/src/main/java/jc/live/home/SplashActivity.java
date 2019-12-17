@@ -7,8 +7,14 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import jc.live.R;
+import jc.live.util.ActivityUtil;
 
-
+/**
+ * 启动图
+ * @Author JC
+ * @Date 2019-12-17
+ * @Since 1.0.0
+ */
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -22,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 try{
                     sleep(3000);//休眠3秒
-                    HomeActivity.forward(getApplicationContext());
+                    ActivityUtil.startActivity(getApplicationContext(),HomeActivity.class);
                     finish();
                 }catch(Exception e){
                     e.printStackTrace();
@@ -31,4 +37,5 @@ public class SplashActivity extends AppCompatActivity {
         };
         myThread.start();
     }
+
 }

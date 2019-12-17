@@ -8,12 +8,13 @@ import android.os.Bundle;
 
 import jc.live.R;
 
+/**
+ * 主页
+ * @Author JC
+ * @Date 2019-12-17
+ * @Since 1.0.0
+ */
 public class HomeActivity extends AppCompatActivity {
-
-    public static void forward(Context context) {
-        Intent it = new Intent(context, HomeActivity.class);
-        context.startActivity(it);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
