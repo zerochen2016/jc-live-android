@@ -6,17 +6,11 @@ import android.os.Bundle;
 
 import jc.live.R;
 
-/**
- * 主页
- * @Author JC
- * @Date 2019-12-17
- * @Since 1.0.0
- */
-public class HomeActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_login);
     }
 }
