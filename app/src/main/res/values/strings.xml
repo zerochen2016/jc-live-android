@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">jc-live-android</string>
+
+    <string name="skip_second">跳过(%1$s)</string>
 </resources>

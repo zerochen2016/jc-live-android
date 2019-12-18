@@ -23,6 +23,10 @@ public class SharedPreferencesUtil {
     private static SharedPreferencesUtil sInstance;
     private SharedPreferences mSharedPreferences;
 
+    private static final String UID = "UID";
+    private static final String TOKEN = "TOKEN";
+
+
     private SharedPreferencesUtil() {
         mSharedPreferences = AppContext.sInstance.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
 

@@ -13,7 +13,7 @@ import java.util.Map;
  * @Date 2019-12-17
  * @Since 1.0.0
  */
-public class HttpUtil extends Thread {
+public class HttpClient extends Thread {
 
     private String requestUrl = "";
     private Map<String, String> params;
@@ -27,7 +27,7 @@ public class HttpUtil extends Thread {
     private String response = null;
     private String parameter = null;
 
-    public HttpUtil(String requestUrl, HttpCallback httpCallback, Map<String, String> params){
+    public HttpClient(String requestUrl, HttpCallback httpCallback, Map<String, String> params){
         this.requestUrl = requestUrl;
         this.params = params;
         this.httpCallback = httpCallback;
@@ -112,7 +112,7 @@ public class HttpUtil extends Thread {
      * 执行请求
      */
     public static void doPost(String requestUrl, Map<String, String> params, HttpCallback httpCallBack){
-        HttpUtil hu = new HttpUtil(requestUrl,httpCallBack,params);
+        HttpClient hu = new HttpClient(requestUrl,httpCallBack,params);
         hu.start();
     }
 }
