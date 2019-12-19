@@ -1,9 +1,7 @@
 package jc.live.util;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
@@ -23,12 +21,8 @@ public class SharedPreferencesUtil {
     private static SharedPreferencesUtil sInstance;
     private SharedPreferences mSharedPreferences;
 
-    private static final String UID = "UID";
-    private static final String TOKEN = "TOKEN";
-
-
     private SharedPreferencesUtil() {
-        mSharedPreferences = AppContext.sInstance.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+        mSharedPreferences = AppContext.getContext().getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
 
     }
 

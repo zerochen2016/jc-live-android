@@ -6,13 +6,16 @@
     <dist:module dist:instant="true" />
 
     <application
+        android:name=".base.AppContext"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".home.LoginActivity"></activity>
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".web.WebViewActivity" />
         <activity android:name=".home.AdvertismentStartActivity" />
         <activity android:name=".home.SplashActivity">
             <intent-filter>

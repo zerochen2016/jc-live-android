@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
+    private final String sTag = this.getClass().getSimpleName();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
