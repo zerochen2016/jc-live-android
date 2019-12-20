@@ -11,9 +11,6 @@ import jc.live.util.StringUtil;
  */
 public class BaseInfo {
 
-    public static final String UID = "UID";
-    public static final String TOKEN = "TOKEN";
-
     private String mUserId;
 
     private String mToken;
@@ -21,7 +18,7 @@ public class BaseInfo {
     public String getUserId() {
         if(StringUtil.anyEmpty(mUserId,mToken)){
             String[] userIdAndToken = SharedPreferencesUtil.getInstance()
-                    .getMultiStringValue(new String[]{BaseInfo.UID, BaseInfo.TOKEN});
+                    .getMultiStringValue(new String[]{Constant.SP_KEY.UID, Constant.SP_KEY.TOKEN});
             if(CollectionUtil.arrayEmpty(userIdAndToken)){
                 return "";
             }
@@ -40,7 +37,7 @@ public class BaseInfo {
     public String getToken() {
         if(StringUtil.anyEmpty(mUserId,mToken)){
             String[] userIdAndToken = SharedPreferencesUtil.getInstance()
-                    .getMultiStringValue(new String[]{BaseInfo.UID, BaseInfo.TOKEN});
+                    .getMultiStringValue(new String[]{Constant.SP_KEY.UID, Constant.SP_KEY.TOKEN});
             if(CollectionUtil.arrayEmpty(userIdAndToken)){
                 return "";
             }

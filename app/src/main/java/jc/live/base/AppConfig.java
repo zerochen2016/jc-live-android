@@ -32,7 +32,7 @@ public class AppConfig {
     public String getUserId() {
         if(StringUtil.anyEmpty(mUserId,mToken)){
             String[] userIdAndToken = SharedPreferencesUtil.getInstance()
-                    .getMultiStringValue(new String[]{BaseInfo.UID, BaseInfo.TOKEN});
+                    .getMultiStringValue(new String[]{Constant.SP_KEY.UID, Constant.SP_KEY.TOKEN});
             if(CollectionUtil.arrayEmpty(userIdAndToken)){
                 return "";
             }
@@ -51,7 +51,7 @@ public class AppConfig {
     public String getToken() {
         if(StringUtil.anyEmpty(mUserId,mToken)){
             String[] userIdAndToken = SharedPreferencesUtil.getInstance()
-                    .getMultiStringValue(new String[]{BaseInfo.UID, BaseInfo.TOKEN});
+                    .getMultiStringValue(new String[]{Constant.SP_KEY.UID, Constant.SP_KEY.TOKEN});
             if(CollectionUtil.arrayEmpty(userIdAndToken)){
                 return "";
             }

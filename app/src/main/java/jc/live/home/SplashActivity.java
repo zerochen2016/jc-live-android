@@ -4,8 +4,11 @@ package jc.live.home;
 import android.os.Bundle;
 
 import jc.live.R;
+import jc.live.advertisment.AdvertismentModel;
 import jc.live.base.BaseActivity;
+import jc.live.base.Constant;
 import jc.live.util.ActivityUtil;
+import jc.live.util.SharedPreferencesUtil;
 
 /**
  * 启动图

@@ -8,6 +8,11 @@ import android.net.Uri;
 
 import java.util.List;
 
+import jc.live.base.AppConfig;
+import jc.live.base.AppContext;
+import jc.live.home.HomeActivity;
+import jc.live.login.LoginActivity;
+
 /**
  * Activity工具类
  * @Author JC
@@ -55,5 +60,17 @@ public class ActivityUtil {
         List<ResolveInfo> list = packageManager.queryIntentActivities(intent,
                 PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
+    }
+
+    /**
+     * 跳转主页或者登陆页
+     */
+    public static void forwardHomeOrLogin() {
+        AppConfig appConfig = AppConfig.getInstance();
+        if(StringUtil.anyEmpty(appConfig.getUserId(),appConfig.getToken())){
+            startActivity(AppContext.getContext(), LoginActivity.class);
+        }else{
+            startActivity(AppContext.getContext(), HomeActivity.class);
+        }
     }
 }

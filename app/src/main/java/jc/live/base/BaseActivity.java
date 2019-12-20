@@ -1,6 +1,8 @@
 package jc.live.base;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
@@ -13,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private final String sTag = this.getClass().getSimpleName();
+    protected final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,4 +46,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int getLayoutId();
+
+    public boolean onKeyDown(int keycode, KeyEvent event) {
+        if (keycode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            // 右键处理
+            moveTaskToBack(true);
+        }
+        return super.onKeyDown(keycode,event);
+    }
 }
