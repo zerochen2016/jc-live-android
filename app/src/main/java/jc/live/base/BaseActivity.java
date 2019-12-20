@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import jc.live.R;
 
 /**
  * @Author JC
@@ -16,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected final String TAG = this.getClass().getSimpleName();
+
+    private long mLastClickBackTime;//上次点击back键的时间
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,11 +52,30 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutId();
 
-    public boolean onKeyDown(int keycode, KeyEvent event) {
-        if (keycode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            // 右键处理
-            moveTaskToBack(true);
+    @Override
+    public void onBackPressed() {
+        long curTime = System.currentTimeMillis();
+        if (curTime - mLastClickBackTime > 2000) {
+            mLastClickBackTime = curTime;
+            Toast.makeText(getApplicationContext(), R.string.click_again_to_exit, Toast.LENGTH_SHORT).show();
+            return;
         }
-        return super.onKeyDown(keycode,event);
+        super.onBackPressed();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        long curTime = System.currentTimeMillis();
+        if (curTime - mLastClickBackTime > 2000) {
+            mLastClickBackTime = curTime;
+            Toast.makeText(getApplicationContext(), R.string.click_again_to_exit, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(true);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

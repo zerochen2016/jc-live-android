@@ -122,6 +122,7 @@ public class AdvertismentStartActivity extends BaseActivity implements View.OnCl
             case R.id.ad_start_skip:
                 //登陆页或者主页
                 ActivityUtil.forwardHomeOrLogin();
+                finish();
                 break;
             default:
         }
